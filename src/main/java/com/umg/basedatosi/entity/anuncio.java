@@ -1,35 +1,32 @@
 package com.umg.basedatosi.entity;
 
-import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 import java.io.Serializable;
-import java.util.Date;
 
 @Entity
 @Table(name = "ANUNCIO")
 public class anuncio implements Serializable{
 
-	/**
-	 * 
-	 */
-	private static final long serialVersionUID = 4852157310646555072L;
+	private static final long serialVersionUID = 33;
 
 	@Id
-	@Basic(optional = false)
-	@Column(name = "cod_anuncio")
+	@SequenceGenerator(name = "SqcAnuncio",sequenceName = "SQC_ANUNCIO",allocationSize = 1)
+	@GeneratedValue(generator = "SqcAnuncio")
 	private Integer cod_anuncio;
 	
 	@Column(name = "anuncio")
 	private String anuncio;
 	
 	@Column(name = "fecha_inicio")
-	private Date fecha_incio;
+	private String fecha_incio;
 	
 	@Column(name = "fecha_fin")
-	private Date fecha_fin;
+	private String fecha_fin;
 
 	public Integer getCod_anuncio() {
 		return cod_anuncio;
@@ -47,20 +44,20 @@ public class anuncio implements Serializable{
 		this.anuncio = anuncio;
 	}
 
-	public Date getFecha_incio() {
+	public String getFecha_incio() {
 		return fecha_incio;
 	}
 
-	public void setFecha_incio(Date fecha_incio) {
+	public void setFecha_incio(String fecha_incio) {
 		this.fecha_incio = fecha_incio;
 	}
 
-	public Date getFecha_fin() {
+	public String getFecha_fin() {
 		return fecha_fin;
 	}
 
-	public void setFecha_fin(Date fecha_fin) {
+	public void setFecha_fin(String fecha_fin) {
 		this.fecha_fin = fecha_fin;
 	}
-		
+
 }

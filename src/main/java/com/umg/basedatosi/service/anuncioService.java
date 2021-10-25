@@ -1,10 +1,13 @@
 package com.umg.basedatosi.service;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -31,4 +34,13 @@ public class anuncioService {
 		return AnuncioRepositorio.save(Anuncio);
 	}
 	
+	@DeleteMapping(path = "/eliminar/{cod_anuncio}")
+	public void deleteSucursal(@PathVariable("cod_anuncio") Integer cod_anuncio) {
+     
+		Optional<anuncio> anuncio;
+		anuncio = AnuncioRepositorio.findById(cod_anuncio);
+		if(anuncio.isPresent()) {
+			AnuncioRepositorio.delete(anuncio.get());
+		}
+	}
 }
