@@ -23,7 +23,7 @@ public class anuncio implements Serializable{
 	private String anuncio;
 	
 	@Column(name = "fecha_inicio")
-	private String fecha_incio;
+	private String fecha_inicio;
 	
 	@Column(name = "fecha_fin")
 	private String fecha_fin;
