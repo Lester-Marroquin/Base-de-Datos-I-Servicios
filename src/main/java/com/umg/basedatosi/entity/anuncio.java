@@ -45,11 +45,11 @@ public class anuncio implements Serializable{
 	}
 
 	public String getFecha_incio() {
-		return fecha_incio;
+		return fecha_inicio;
 	}
 
 	public void setFecha_incio(String fecha_incio) {
-		this.fecha_incio = fecha_incio;
+		this.fecha_inicio = fecha_incio;
 	}
 
 	public String getFecha_fin() {
