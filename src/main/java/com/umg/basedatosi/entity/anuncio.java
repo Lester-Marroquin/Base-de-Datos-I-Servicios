@@ -6,7 +6,11 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
+
 import java.io.Serializable;
+import java.util.Calendar;
 
 @Entity
 @Table(name = "ANUNCIO")
@@ -23,10 +27,12 @@ public class anuncio implements Serializable{
 	private String anuncio;
 	
 	@Column(name = "fecha_inicio")
-	private String fecha_inicio;
+	@Temporal(TemporalType.DATE)
+	private Calendar fecha_inicio;
 	
 	@Column(name = "fecha_fin")
-	private String fecha_fin;
+	@Temporal(TemporalType.DATE)
+	private Calendar fecha_fin;
 
 	public Integer getCod_anuncio() {
 		return cod_anuncio;
@@ -44,20 +50,21 @@ public class anuncio implements Serializable{
 		this.anuncio = anuncio;
 	}
 
-	public String getFecha_incio() {
+	public Calendar getFecha_inicio() {
 		return fecha_inicio;
 	}
 
-	public void setFecha_incio(String fecha_incio) {
-		this.fecha_inicio = fecha_incio;
+	public void setFecha_inicio(Calendar fecha_inicio) {
+		this.fecha_inicio = fecha_inicio;
 	}
 
-	public String getFecha_fin() {
+	public Calendar getFecha_fin() {
 		return fecha_fin;
 	}
 
-	public void setFecha_fin(String fecha_fin) {
+	public void setFecha_fin(Calendar fecha_fin) {
 		this.fecha_fin = fecha_fin;
 	}
+
 
 }
