@@ -17,8 +17,8 @@ import org.springframework.web.bind.annotation.RestController;
 import com.umg.basedatosi.entity.Cliente;
 import com.umg.basedatosi.entity.Direccion;
 import com.umg.basedatosi.entity.Empleado;
-import com.umg.basedatosi.entity.Telefono;
 import com.umg.basedatosi.entity.Persona;
+import com.umg.basedatosi.entity.Telefono;
 import com.umg.basedatosi.repository.Cliente_Repo;
 import com.umg.basedatosi.repository.Direccion_Repo;
 import com.umg.basedatosi.repository.Empleado_Repo;
@@ -26,11 +26,9 @@ import com.umg.basedatosi.repository.Persona_Repo;
 import com.umg.basedatosi.repository.Telefono_Repo;
 
 @RestController
-@RequestMapping("/Persona")
+@RequestMapping("/persona")
 @CrossOrigin
 public class Persona_Service{
-
-	
 	
 	@Autowired
 	Persona_Repo persona;
@@ -108,6 +106,21 @@ public class Persona_Service{
 		}
 		return "BORRADO";
 	}
+	
+	
+	@PostMapping(path = "/login")
+	public Persona login(@RequestBody Persona usuario) {
+	
+	List<Persona> usuarios = persona.findByUsuarioAndContrasenia(usuario.getUsuario(), usuario.getContrasenia());
+	
+	if(!usuarios.isEmpty()) {
+    return usuarios.get(0);
+	}
+	return null;
+	
+	}
+	
+	
 }
 
 

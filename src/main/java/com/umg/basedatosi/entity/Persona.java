@@ -13,7 +13,7 @@ import javax.persistence.Table;
 
 
 @Entity
-@Table(name = "persona")
+@Table(name = "PERSONA")
 public class Persona implements  Serializable{
 
     private static final long serialVersionUID = 6L;
@@ -24,10 +24,10 @@ public class Persona implements  Serializable{
     private Integer cod_persona;
 	
 	@Column(name = "no_identificacion")
-	private String Noidentificacion;
+	private String noIdentificacion;
 	
 	@Column(name = "cod_identificacion")
-	private Integer identificacion;
+	private Integer codIdentificacion;
 	
 	@Column(name = "cod_sexo")
 	private Integer sexo;
@@ -53,16 +53,22 @@ public class Persona implements  Serializable{
 	@Column(name = "fecha_nacimiento")
     private String fecha_nacimiento;
 	
+	@Column(name = "usuario")
+    private String usuario;
+	
+	@Column(name = "contrasenia")
+    private String contrasenia;
+	
 	@OneToMany(mappedBy = "cod_persona")
 	private List<Direccion> direccionlist;
 	
 	@OneToMany(mappedBy = "cod_persona")
 	private List<Telefono> telefonolists;
 
-	@OneToMany(mappedBy = "codPersona")
+	@OneToMany(mappedBy = "cod_persona")
 	private List<Empleado> empleado;
 	
-	@OneToMany(mappedBy = "codPersona")
+	@OneToMany(mappedBy = "cod_persona")
 	private List<Cliente> cliente;
 
 	public Integer getCod_persona() {
@@ -73,20 +79,20 @@ public class Persona implements  Serializable{
 		this.cod_persona = cod_persona;
 	}
 
-	public String getNoidentificacion() {
-		return Noidentificacion;
+	public String getNoIdentificacion() {
+		return noIdentificacion;
 	}
 
-	public void setNoidentificacion(String noidentificacion) {
-		Noidentificacion = noidentificacion;
+	public void setNoIdentificacion(String noIdentificacion) {
+		this.noIdentificacion = noIdentificacion;
 	}
 
-	public Integer getIdentificacion() {
-		return identificacion;
+	public Integer getCodIdentificacion() {
+		return codIdentificacion;
 	}
 
-	public void setIdentificacion(Integer identificacion) {
-		this.identificacion = identificacion;
+	public void setCodIdentificacion(Integer codIdentificacion) {
+		this.codIdentificacion = codIdentificacion;
 	}
 
 	public Integer getSexo() {
@@ -151,6 +157,22 @@ public class Persona implements  Serializable{
 
 	public void setFecha_nacimiento(String fecha_nacimiento) {
 		this.fecha_nacimiento = fecha_nacimiento;
+	}
+
+	public String getUsuario() {
+		return usuario;
+	}
+
+	public void setUsuario(String usuario) {
+		this.usuario = usuario;
+	}
+
+	public String getContrasenia() {
+		return contrasenia;
+	}
+
+	public void setContrasenia(String contrasenia) {
+		this.contrasenia = contrasenia;
 	}
 
 	public List<Direccion> getDireccionlist() {
