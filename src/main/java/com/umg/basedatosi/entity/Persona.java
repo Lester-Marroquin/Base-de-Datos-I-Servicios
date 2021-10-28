@@ -23,6 +23,9 @@ public class Persona implements  Serializable{
 	@GeneratedValue(generator = "SqcPersona")
     private Integer cod_persona;
 	
+	@Column(name = "no_identificacion")
+	private String Noidentificacion;
+	
 	@Column(name = "cod_identificacion")
 	private Integer identificacion;
 	
@@ -62,36 +65,20 @@ public class Persona implements  Serializable{
 	@OneToMany(mappedBy = "codPersona")
 	private List<Cliente> cliente;
 
-	public List<Telefono> getTelefonolists() {
-		return telefonolists;
-	}
-
-	public void setTelefonolists(List<Telefono> telefonolists) {
-		this.telefonolists = telefonolists;
-	}
-	
-	public List<Empleado> getEmpleado() {
-		return empleado;
-	}
-
-	public void setEmpleado(List<Empleado> empleado) {
-		this.empleado = empleado;
-	}
-
-	public List<Cliente> getCliente() {
-		return cliente;
-	}
-
-	public void setCliente(List<Cliente> cliente) {
-		this.cliente = cliente;
-	}
-
 	public Integer getCod_persona() {
 		return cod_persona;
 	}
 
 	public void setCod_persona(Integer cod_persona) {
 		this.cod_persona = cod_persona;
+	}
+
+	public String getNoidentificacion() {
+		return Noidentificacion;
+	}
+
+	public void setNoidentificacion(String noidentificacion) {
+		Noidentificacion = noidentificacion;
 	}
 
 	public Integer getIdentificacion() {
@@ -172,6 +159,30 @@ public class Persona implements  Serializable{
 
 	public void setDireccionlist(List<Direccion> direccionlist) {
 		this.direccionlist = direccionlist;
+	}
+
+	public List<Telefono> getTelefonolists() {
+		return telefonolists;
+	}
+
+	public void setTelefonolists(List<Telefono> telefonolists) {
+		this.telefonolists = telefonolists;
+	}
+
+	public List<Empleado> getEmpleado() {
+		return empleado;
+	}
+
+	public void setEmpleado(List<Empleado> empleado) {
+		this.empleado = empleado;
+	}
+
+	public List<Cliente> getCliente() {
+		return cliente;
+	}
+
+	public void setCliente(List<Cliente> cliente) {
+		this.cliente = cliente;
 	}
 
 	

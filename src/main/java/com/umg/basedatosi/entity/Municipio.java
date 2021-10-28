@@ -25,19 +25,11 @@ public class Municipio implements  Serializable{
 	@Column(name = "cod_departamento")
 	private Integer cod_departamento;
 
-	@Column(name = "departamento")
-    private String departamento;
+	@Column(name = "municipio")
+    private String municipios;
 	
 	@OneToMany(mappedBy = "municipio")
 	private List<Sucursal> municipio;
-	
-	public List<Sucursal> getMunicipio() {
-		return municipio;
-	}
-
-	public void setMunicipio(List<Sucursal> municipio) {
-		this.municipio = municipio;
-	}
 
 	public Integer getCod_municipio() {
 		return cod_municipio;
@@ -47,7 +39,6 @@ public class Municipio implements  Serializable{
 		this.cod_municipio = cod_municipio;
 	}
 
-
 	public Integer getCod_departamento() {
 		return cod_departamento;
 	}
@@ -56,12 +47,22 @@ public class Municipio implements  Serializable{
 		this.cod_departamento = cod_departamento;
 	}
 
-	public String getDepartamento() {
-		return departamento;
+	public String getMunicipios() {
+		return municipios;
 	}
 
-	public void setDepartamento(String departamento) {
-		this.departamento = departamento;
+	public void setMunicipios(String municipios) {
+		this.municipios = municipios;
 	}
+
+	public List<Sucursal> getMunicipio() {
+		return municipio;
+	}
+
+	public void setMunicipio(List<Sucursal> municipio) {
+		this.municipio = municipio;
+	}
+	
+	
 	
 }
