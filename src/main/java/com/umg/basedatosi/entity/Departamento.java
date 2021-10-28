@@ -26,7 +26,7 @@ public class Departamento implements  Serializable{
     private String departamento;
 	
 	@OneToMany(mappedBy = "cod_departamento")
-	private List<Municipio> cod_municipios;	
+	private List<Municipio> cod_municipio;	
 
 	public Integer getCod_departamento() {
 		return cod_departamento;
@@ -37,11 +37,11 @@ public class Departamento implements  Serializable{
 	}
 
 	public List<Municipio> getCod_departamentos() {
-		return cod_municipios;
+		return cod_municipio;
 	}
 
-	public void setCod_departamentos(List<Municipio> cod_departamentos) {
-		this.cod_municipios = cod_departamentos;
+	public void setCod_departamentos(List<Municipio> cod_departamento) {
+		this.cod_municipio = cod_departamento;
 	}
 
 	public String getDepartamento() {
